@@ -65,10 +65,10 @@ fun MyApp() {
 //get dummy puppies here
 fun getDummyPuppies():List<Puppy>{
     val puppyList: MutableList<Puppy> = mutableListOf()
-    puppyList.add(Puppy("Brono",2,"Very SHarp dog here with a very cute little smile in its face and sharp minded",R.drawable.dog1))
-    puppyList.add(Puppy("Hiney",4,"Cute little furry puppy with very smart and addictive smile in her face",R.drawable.dog2))
-    puppyList.add(Puppy("Toro",5,"Nice little cute puppy very cheer full and play full",R.drawable.dog3))
-    puppyList.add(Puppy("Sheerro",2,"Cool smart and calm nature dog",R.drawable.dog4))
+    puppyList.add(Puppy("Brno",2,"Very SHarp dog here with a very cute little smile in its face and sharp minded",R.drawable.dog1))
+    puppyList.add(Puppy("Honey",4,"Cute little furry puppy with very smart and addictive smile in her face",R.drawable.dog2))
+    puppyList.add(Puppy("Tor",5,"Nice little cute puppy very cheer full and play full",R.drawable.dog3))
+    puppyList.add(Puppy("Sheer",2,"Cool smart and calm nature dog",R.drawable.dog4))
     puppyList.add(Puppy("Kiley",8,"Great sensing power can easily understand your feelings",R.drawable.dog5))
     return puppyList
 }
@@ -81,7 +81,7 @@ fun AppNavigator(){
         composable("puppyDetails/{puppy}",
         arguments = listOf(navArgument("puppy"){type = NavType.StringType })){
             it.arguments?.getString("puppy")?.let{json->
-                val puppy = Gson().fromJson<Puppy>(json,Puppy::class.java)
+                val puppy = Gson().fromJson(json,Puppy::class.java)
                 PuppyDetails(puppy = puppy)
             }
         }
